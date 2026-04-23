@@ -5,6 +5,7 @@ import "katex/dist/katex.min.css";
 import { LangProvider } from "@/contexts/LangContext";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/Navbar";
+import { MathProvider } from "@/components/providers/MathProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,9 +26,11 @@ export default function RootLayout({
     <html lang="ru" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900">
         <LangProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Toaster />
+          <MathProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Toaster />
+          </MathProvider>
         </LangProvider>
       </body>
     </html>

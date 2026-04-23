@@ -150,6 +150,7 @@ export default function QuizShell() {
             questionNumber={currentQuestionIndex + 1}
             totalQuestions={questions.length}
             lang={lang}
+            sectionCode={currentSection.section.code}
           />
           <QuizChoices
             choices={choices}

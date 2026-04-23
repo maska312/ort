@@ -8,14 +8,25 @@ export type Section = {
   time_limit_sec: number
 }
 
-// Вопрос
+export type QuestionType = 'comparison' | 'standard'
+
 export type Question = {
   id: string
   section_id: string
+  // Тип вопроса и часть теста
+  question_type: QuestionType
+  part: 1 | 2
+  // Тело вопроса (для standard и как заголовок для comparison)
   body_ru: string
   body_ky?: string
+  // Для вопросов типа 'comparison'
+  column_a?: string
+  column_b?: string
+  context_ru?: string   // условие над колонками, если есть
+  // Варианты ответов (для comparison генерируются автоматически)
   choices_ru: string[]
   choices_ky?: string[]
+  // Ответ и метаданные
   correct_index: number
   explanation?: string
   order_index: number

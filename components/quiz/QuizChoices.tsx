@@ -1,6 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import { MathJax } from 'better-react-mathjax'
 
 type Props = {
   choices: string[]
@@ -55,7 +56,7 @@ export default function QuizChoices({ choices, selectedIndex, correctIndex, onSe
               showResult && isCorrect && 'font-semibold text-green-800',
               showResult && isWrong && 'text-red-800 line-through',
             )}>
-              {choice}
+              <MathJax dynamic>{choice}</MathJax>
             </span>
             {showResult && isCorrect && <span className="text-green-600 text-xl">✓</span>}
             {showResult && isWrong && <span className="text-red-600 text-xl">✗</span>}
